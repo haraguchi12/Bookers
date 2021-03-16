@@ -1,7 +1,41 @@
 <h1>Books</h1>
-<% @books.each do |book| %>
-  <p>title</p>
-  <span>
-    <%= link_to book.title, book_path(book.id) %>
-  </span>
+
+<table>
+<thead>
+<tr>
+<th>title</th>
+<th>body</th>
+<th></th>
+</tr>
+</thead>
+<td>
+<%= link_to "show", book_path(book.id) %>
+<%= link_to "edit", edit_book_path(book.id) %>
+<%= link_to "destroy", @book, "data-confirm" => "Are you sure?" %>
+</td>
+
+<tbody>
+<% @books.each do |post| %>
+<tr> 
+<td>
+<%= post.title %>
+</td>
+<td>
+<%= post.body %>
+</td>
+
+</tr>  
+<% end %>
+</tbody>   
+</table>
+
+<h2>New Book</h2>
+<!-- form_with部分 -->
+<%= form_with model: @book, url:'/books', local:true do |f| %>
+  <h4>Title</h4>
+  <%= f.text_field :title %>
+  <h4>Body</h4>
+  <%= f.text_area :body %>
+  <br><%= f.submit '投稿' %></br>
+
 <% end %>

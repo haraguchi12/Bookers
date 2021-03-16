@@ -2,6 +2,8 @@ class BooksController < ApplicationController
   def new
     @book = Book.new
   end
+  
+  
   def create
     # １. データを新規登録するためのインスタンス作成
     book = Book.new(book_params)
@@ -12,7 +14,7 @@ class BooksController < ApplicationController
   end
   
   def index
-    @books = Book.all
+    @book = Book.all
   end
   
   def show
