@@ -4,5 +4,9 @@
   <%= f.text_field :title %>
   <h4>body</h4>
   <%= f.text_area :body %>
-  <br><%= f.submit 'Update Book' %></br
-<% end %>
+  <br><%= f.submit 'Update Book' %></br>
+  <% end %>
+  
+<%= link_to "show", book_path(@book.id) %>
+|
+<a class="back" href="/books">Back</a>
