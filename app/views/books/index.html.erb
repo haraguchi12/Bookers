@@ -1,9 +1,4 @@
-<div>
-<% if flash[:notice] %>
-     <p id="notice">
-       <%= flash[:notice] %>
-     </p>
-   <% end %>
+
 </div>
 <h3>Books</h3>
 
@@ -31,6 +26,7 @@
 <h2>New Book</h2>
 <!-- form_with部分 -->
 <%= form_with model: @book, url:'/books', local:true do |f| %>
+<%= render 'layouts/error_messages', model: f.object %>
   <h4>Title</h4>
   <%= f.text_field :title %>
   <h4>Body</h4>

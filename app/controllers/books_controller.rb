@@ -15,7 +15,7 @@ class BooksController < ApplicationController
       redirect_to book_path(@book.id)
     else
       @books = Book.all
-      flash.now[:notice] = "can't be blank error"
+      flash.now[:notice] = "error  Title can't be blank Body can't be blank  "
       render :index
     end
   end
@@ -41,7 +41,7 @@ class BooksController < ApplicationController
     redirect_to book_path(@book.id)
     else
     @books = Book.all
-    flash.now[:notice] = "error"
+    flash.now[:notice] = " error  title body hoge body show edit destroy "
     render :edit
     
     end
